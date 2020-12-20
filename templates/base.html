@@ -17,7 +17,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 {% for key, value in departures.items() %}
-                <li class="nav-item {% if request.path == '/departures/{{ key }}/' %}active{% endif %}">
+                <li class="nav-item {% if request.path == '/departures/{}/'.format(key) %}active{% endif %}">
                     <a class="nav-link" href="/departures/{{ key }}/">{{ value }}</a>
                 </li>
                 {% endfor %}
