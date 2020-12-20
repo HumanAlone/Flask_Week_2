@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block container %}
+
+<main class="container">
+    <section class="mt-3 pb-5">
+        <h1 class="display-3 mt-4">{{ tours[id].title }}
+            {% if tours[id].stars == '5' %}<p>★ ★ ★ ★ ★</p>
+            {% elif tours[id].stars == '4' %}<p>★ ★ ★ ★</p>
+            {% elif tours[id].stars == '3' %}<p>★ ★ ★</p>
+            {% elif tours[id].stars == '2' %}<p>★ ★</p>
+            {% elif tours[id].stars == '1' %}<p>★</p>
+            {% endif %}
+        </h1>
+        <!-- HERO -->
+        <p class="lead">{{ tours[id].country }} из {{ departures[tours[id].departure][2:] }} на {{ tours[id].nights }}
+            ночей</p>
+        <img src={{tours[id].picture}} class="w-75" alt="Фото потерялось...">
+        <p class="my-4 w-75">{{ tours[id].description }}</p>
+        <a href="/tours/{{ id }}" class="btn btn-success btn-lg">Купить тур за {{ tours[id].price }}</a>
+    </section>
+</main>
+
+{% endblock %}
